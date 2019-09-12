@@ -1,4 +1,4 @@
-FROM maven:3.3-jdk-8
+FROM maven:3.6-jdk-8
 MAINTAINER Nathan Walker <nathan@rylath.net>, Sean Óg Crudden <og.crudden@gmail.com>
 
 ARG AGENCYID="1"
@@ -24,7 +24,9 @@ ENV TRANSITCLOCK_CORE /transitclock-core
 RUN apt-get update \
 	&& apt-get install -y postgresql-client \
 	&& apt-get install -y git-core \
-	&& apt-get install -y vim
+	&& apt-get install -y nano    \ 
+        && apt-get install -y vim    \
+        && apt-get install -y htop 
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
@@ -46,8 +48,8 @@ RUN gpg --keyserver pool.sks-keyservers.net --recv-keys \
 	F3A04C595DB5B6A5F1ECA43E3B7BBB100D811BBE \
 	F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23
 
-ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.0.43
+ENV TOMCAT_MAJOR 9
+ENV TOMCAT_VERSION 9.0.24
 ENV TOMCAT_TGZ_URL https://archive.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 
 RUN set -x \
@@ -96,7 +98,7 @@ RUN cp ${TRANSITCLOCK_CORE}/transitclockApi/target/api.war  /usr/local/tomcat/we
 # Deploy webapp which is a UI based on the API.
 RUN cp ${TRANSITCLOCK_CORE}/transitclockWebapp/target/web.war  /usr/local/tomcat/webapps
 
-RUN cp ${TRANSITCLOCK_CORE}/transitclock/target/classes/ddl_postgres*.sql /usr/local/transitclock/db
+#RUN cp ${TRANSITCLOCK_CORE}/transitclock/target/classes/ddl_postgres*.sql /usr/local/transitclock/db
 
 # RUN rm -rf /transitclock-core
 
@@ -109,13 +111,15 @@ ADD bin/create_tables.sh create_tables.sh
 ADD bin/create_api_key.sh create_api_key.sh
 ADD bin/create_webagency.sh create_webagency.sh
 ADD bin/import_gtfs.sh import_gtfs.sh
-ADD bin/start_transitclock.sh start_transitclock.sh
+#ADD bin/start_transitclock.sh start_transitclock.sh
+ADD bin/start_transitime.sh start_transitime.sh
 ADD bin/get_api_key.sh get_api_key.sh
 ADD bin/import_avl.sh import_avl.sh
 ADD bin/process_avl.sh process_avl.sh
 ADD bin/update_traveltimes.sh update_traveltimes.sh
 ADD bin/set_config.sh set_config.sh
-
+ADD multi/halifax.properties halifax.properties
+ADD multi/tampa.properties  tampa.properties
 # Handy utility to allow you connect directly to database
 ADD bin/connect_to_db.sh connect_to_db.sh
 
@@ -131,7 +135,7 @@ RUN \
  	chmod 777 *.sh
 
 ADD config/postgres_hibernate.cfg.xml /usr/local/transitclock/config/hibernate.cfg.xml
-ADD ${TRANSITCLOCK_PROPERTIES} /usr/local/transitclock/config/transitclockConfig.xml
+#ADD ${TRANSITCLOCK_PROPERTIES} /usr/local/transitclock/config/transitclockConfig.xml
 
 # This adds the transitime configs to test.
 ADD config/test/* /usr/local/transitclock/config/test/
@@ -139,4 +143,4 @@ ADD config/test/* /usr/local/transitclock/config/test/
 
 EXPOSE 8080
 
-CMD ["/start_transitclock.sh"]
+CMD ["/start_transitime.sh"]

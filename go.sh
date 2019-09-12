@@ -10,7 +10,7 @@ docker rm transitclock-server-instance
 
 docker build -t transitclock-server \
 --build-arg TRANSITCLOCK_GITHUB="https://github.com/TheTransitClock/transitime.git" \
---build-arg TRANSITCLOCK_BRANCH="tc_issue_34" \
+--build-arg TRANSITCLOCK_BRANCH="develop" \
 --build-arg AGENCYNAME=GOHART \
 --build-arg GTFS_URL="http://gohart.org/google/google_transit.zip" \
 --build-arg GTFSRTVEHICLEPOSITIONS="http://realtime.prod.obahart.org:8088/vehicle-positions" .
