@@ -50,7 +50,7 @@
 
     </avl>
     <db>
-        <dbName>AGENCYNAME</dbName>
+        <dbName>agency-AGENCYNAME1</dbName>
         <dbHost>POSTGRES_PORT_5432_TCP_ADDR:POSTGRES_PORT_5432_TCP_PORT</dbHost>
         <dbType>postgresql</dbType>
         <dbUserName>postgres</dbUserName>

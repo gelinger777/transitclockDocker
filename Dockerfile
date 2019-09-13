@@ -159,7 +159,7 @@ RUN \
  	chmod 777 *.sh  && cd ..
 
 ADD config/postgres_hibernate.cfg.xml /usr/local/transitclock/config/hibernate.cfg.xml
-#ADD ${TRANSITCLOCK_PROPERTIES} /usr/local/transitclock/config/transitclockConfig.xml
+ADD ${TRANSITCLOCK_PROPERTIES} /usr/local/transitclock/config/transitclockConfig.xml
 
 # This adds the transitime configs to test.
 ADD config/test/* /usr/local/transitclock/config/test/

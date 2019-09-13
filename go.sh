@@ -20,7 +20,7 @@ docker build -t transitclock-server \
 --build-arg GTFSRTVEHICLEPOSITIONS1="http://realtime.prod.obahart.org:8088/vehicle-positions" \
 --build-arg GTFSRTVEHICLEPOSITIONS1="http://api.tampa.onebusaway.org:8088/vehicle-positions" .
 
-docker run --name transitclock-db -p 5432:5432 -e POSTGRES_PASSWORD=$PGPASSWORD -d postgres:9.6.3
+docker run  -m=4g   --name transitclock-db -p 5432:5432 -e POSTGRES_PASSWORD=$PGPASSWORD -d postgres:9.6.3
 
 docker run --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD transitclock-server ./sh/check_db_up.sh
 
@@ -36,5 +36,5 @@ docker run --name transitclock-server-instance --rm --link transitclock-db:postg
 
 #docker run --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD transitclock-server ./process_avl.sh
 
-docker run --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD  -p 8080:8080 transitclock-server     ./sh/start_transitime.sh
+docker run  -m=4g --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD  -p 8080:8080 transitclock-server     ./sh/start_transitime.sh
 
