@@ -4,7 +4,7 @@ echo 'THETRANSITCLOCK DOCKER: Create API key.'
 
 echo " IMPORT $AGENCYNAME1"
 
-java   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.CreateAPIKey   -c  "../agency/$AGENCYNAME1.properties"   -n "Kris Appleseed"   -u "https://www.google.com"   -e "info2@example.com"   -p "123123123123123"   -d "Core access application" 
+java  -Dtransitclock.hibernate.configFile=/usr/local/transitclock/config/hibernate.cfg.xml   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.CreateAPIKey   -c  "../agency/$AGENCYNAME1.properties"   -n "Kris Appleseed"   -u "https://www.google.com"   -e "info2@example.com"   -p "123123123123123"   -d "Core access application" 
 
 
 
@@ -13,4 +13,4 @@ java   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.Create
 
 
 
-java   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.CreateAPIKey   -c "../agency/$AGENCYNAME2.properties"  -n "Kris Appleseed"    -u "https://www.google.com"   -e "info@example.com"   -p "123123123123"   -d "Core access application"
+java   -Dtransitclock.hibernate.configFile=/usr/local/transitclock/config/hibernate.cfg.xml  -cp /usr/local/transitclock/Core.jar org.transitclock.applications.CreateAPIKey   -c "../agency/$AGENCYNAME2.properties"  -n "Kris Appleseed"    -u "https://www.google.com"   -e "info@example.com"   -p "123123123123"   -d "Core access application"

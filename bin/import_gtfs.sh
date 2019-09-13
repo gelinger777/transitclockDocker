@@ -14,7 +14,7 @@ echo "IMPORTING $AGENCYNAME1  $GTFS_URL1";
 
 
 
-java   -Dtransitclock.logging.dir=/tmp   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.GtfsFileProcessor   -c "../agency/$AGENCYNAME1.properties"   -storeNewRevs   -skipDeleteRevs   -gtfsUrl $GTFS_URL1   -maxTravelTimeSegmentLength 100
+java -Dtransitclock.hibernate.configFile=/usr/local/transitclock/config/hibernate.cfg.xml   -Dtransitclock.logging.dir=/tmp   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.GtfsFileProcessor   -c "../agency/$AGENCYNAME1.properties"   -storeNewRevs   -skipDeleteRevs   -gtfsUrl $GTFS_URL1   -maxTravelTimeSegmentLength 100
 
 
 
@@ -25,5 +25,5 @@ java   -Dtransitclock.logging.dir=/tmp   -cp /usr/local/transitclock/Core.jar or
 echo "IMPORTING $AGENCYNAME2 $GTFS_URL2";
 
 
-java   -Dtransitclock.logging.dir=/tmp   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.GtfsFileProcessor   -c "../agency/$AGENCYNAME2.properties"   -storeNewRevs   -skipDeleteRevs   -gtfsUrl $GTFS_URL2   -maxTravelTimeSegmentLength 100
+java  -Dtransitclock.hibernate.configFile=/usr/local/transitclock/config/hibernate.cfg.xml  -Dtransitclock.logging.dir=/tmp   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.GtfsFileProcessor   -c "../agency/$AGENCYNAME2.properties"   -storeNewRevs   -skipDeleteRevs   -gtfsUrl $GTFS_URL2   -maxTravelTimeSegmentLength 100
 

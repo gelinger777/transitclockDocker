@@ -36,5 +36,5 @@ docker run --name transitclock-server-instance --rm --link transitclock-db:postg
 
 #docker run --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD transitclock-server ./process_avl.sh
 
-docker run --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD  -p 8080:8080 transitclock-server  ./sh/start_transitime.sh
+docker run --name transitclock-server-instance --rm --link transitclock-db:postgres -e PGPASSWORD=$PGPASSWORD  -p 8080:8080 transitclock-server     ./sh/start_transitime.sh
 
