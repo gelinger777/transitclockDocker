@@ -1,5 +1,6 @@
 export PGPASSWORD=transitclock
 
+<<<<<<< HEAD
 docker stop transitclock-db
 docker stop transitclock-server-instance
 
@@ -19,6 +20,17 @@ docker build -t transitclock-server \
 --build-arg GTFS_URL2="http://www.gohart.org/google/google_transit.zip" \
 --build-arg GTFSRTVEHICLEPOSITIONS1="http://realtime.prod.obahart.org:8088/vehicle-positions" \
 --build-arg GTFSRTVEHICLEPOSITIONS1="http://api.tampa.onebusaway.org:8088/vehicle-positions" .
+=======
+docker stop transitime-server-instance
+docker stop transitime-db
+
+docker rm transitime-server-instance
+docker rm transitime-db
+
+docker build --no-cache -t transitime-server .
+
+docker run --name transitime-db -e POSTGRES_PASSWORD=$PGPASSWORD -d postgres:9.6.3
+>>>>>>> d7422e955f425fbbded5b71616aab51877a85bad
 
 docker run --name transitclock-db -p 5432:5432 -e POSTGRES_PASSWORD=$PGPASSWORD -d postgres:9.6.3
 
