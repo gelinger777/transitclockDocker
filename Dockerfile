@@ -3,8 +3,8 @@ MAINTAINER Nathan Walker <nathan@rylath.net>, Sean Óg Crudden <og.crudden@gmail
 
 ARG AGENCYID1="halifax"
 ARG AGENCYNAME1="halifax"
-ARG AGENCYID2="tampta"
-ARG AGENCYNAME2="tampta"
+ARG AGENCYID2="tampa"
+ARG AGENCYNAME2="tampa"
 
 
 # Latest version not used for doing prediction comparison
@@ -141,7 +141,7 @@ ADD bin/process_avl.sh sh/process_avl.sh
 ADD bin/update_traveltimes.sh sh/update_traveltimes.sh
 ADD bin/set_config.sh sh/set_config.sh
 ADD multi/halifax.properties agency/halifax.properties
-ADD multi/tampta.properties  agency/tampta.properties
+ADD multi/tampa.properties  agency/tampa.properties
 # Handy utility to allow you connect directly to database
 ADD bin/connect_to_db.sh sh/connect_to_db.sh
 
