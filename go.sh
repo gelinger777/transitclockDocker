@@ -12,7 +12,9 @@ docker build -t transitclock-server \
 --build-arg TRANSITCLOCK_GITHUB="https://github.com/TheTransitClock/transitime.git" \
 --build-arg TRANSITCLOCK_BRANCH="develop" \
 --build-arg AGENCYNAME1=halifax \
---build-arg AGENCYNAME2=tampa \
+--build-arg AGENCYID1=halifax  \
+--build-arg AGENCYID2=tampa \
+--build-arg AGENCYNAME2=tampa  \
 --build-arg GTFS_URL1="http://gtfs.halifax.ca/static/google_transit.zip" \
 --build-arg GTFS_URL2="http://www.gohart.org/google/google_transit.zip" \
 --build-arg GTFSRTVEHICLEPOSITIONS1="http://realtime.prod.obahart.org:8088/vehicle-positions" \

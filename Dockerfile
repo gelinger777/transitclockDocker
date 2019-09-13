@@ -142,6 +142,8 @@ ADD bin/update_traveltimes.sh sh/update_traveltimes.sh
 ADD bin/set_config.sh sh/set_config.sh
 ADD multi/halifax.properties agency/halifax.properties
 ADD multi/tampa.properties  agency/tampa.properties
+ADD multi/Kautra.properties  agency/Kautra.properties
+
 # Handy utility to allow you connect directly to database
 ADD bin/connect_to_db.sh sh/connect_to_db.sh
 
