@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
 echo 'THETRANSITCLOCK DOCKER: Create API key.'
 # This is to substitute into config file the env values
-find /usr/local/transitclock/config/ -type f -exec sed -i s#"POSTGRES_PORT_5432_TCP_ADDR"#"$POSTGRES_PORT_5432_TCP_ADDR"#g {} \;
-find /usr/local/transitclock/config/ -type f -exec sed -i s#"POSTGRES_PORT_5432_TCP_PORT"#"$POSTGRES_PORT_5432_TCP_PORT"#g {} \;
-find /usr/local/transitclock/config/ -type f -exec sed -i s#"PGPASSWORD"#"$PGPASSWORD"#g {} \;
-find /usr/local/transitclock/config/ -type f -exec sed -i s#"AGENCYNAME"#"$AGENCYNAME"#g {} \;
-find /usr/local/transitclock/config/ -type f -exec sed -i s#"GTFSRTVEHICLEPOSITIONS"#"$GTFSRTVEHICLEPOSITIONS"#g {} \;
 
-java -jar /usr/local/transitclock/CreateAPIKey.jar -c "/usr/local/transitclock/config/transitclockConfig.xml" -d "foo" -e "og.crudden@gmail.com" -n "Sean Og Crudden" -p "123456" -u "http://www.transitclock.org"
+echo " IMPORT $AGENCYNAME1"
+
+java   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.CreateAPIKey   -c  "../agency/$AGENCYNAME1.properties"   -n "Kris Appleseed"   -u "https://www.google.com"   -e "info2@example.com"   -p "123123123123123"   -d "Core access application" 
+
+
+
+
+#echo " IMPORT $AGENCYNAME2"
+
+
+
+#java   -cp /usr/local/transitclock/Core.jar org.transitclock.applications.CreateAPIKey   -c "../agency/$AGENCYNAME2.properties"  -n "Kris Appleseed"    -u "https://www.google.com"   -e "info@example.com"   -p "123123123123"   -d "Core access application"
