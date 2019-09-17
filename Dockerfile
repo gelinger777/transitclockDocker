@@ -16,8 +16,8 @@ ARG GTFSRTVEHICLEPOSITIONS2="http://api.tampa.onebusaway.org:8088/vehicle-positi
 
 
 
-ARG TRANSITCLOCK_GITHUB="https://github.com/gelinger777/transitime.git"
-ARG TRANSITCLOCK_BRANCH="tc_issue_147"
+ARG TRANSITCLOCK_GITHUB="https://github.com/TheTransitClock/transitime.git"
+ARG TRANSITCLOCK_BRANCH="develop"
 ARG TRANSITCLOCK_PROPERTIES="config/transitclockConfig.xml"
 
 

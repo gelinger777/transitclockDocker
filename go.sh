@@ -10,7 +10,7 @@ docker rm transitclock-server-instance
 
 docker build -t transitclock-server \
 --build-arg TRANSITCLOCK_GITHUB="https://github.com/TheTransitClock/transitime.git" \
---build-arg TRANSITCLOCK_BRANCH="tc_issue_147" \
+--build-arg TRANSITCLOCK_BRANCH="develop" \
 --build-arg AGENCYNAME1=halifax \
 --build-arg AGENCYID1=halifax  \
 --build-arg AGENCYID2=tampa \
